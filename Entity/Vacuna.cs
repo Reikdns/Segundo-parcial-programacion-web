@@ -7,6 +7,8 @@ namespace Entity
     {
         [Key]
         public int Id { get; set; }
+
+        public string FkId {get; set;}
         
         public string Nombre { get; set; }
         
@@ -18,7 +20,5 @@ namespace Entity
         {
             EdadDeAplicacion = FechaDeAplicacion.Year - fechaDeNacimiento.Year;
         }
-
-    }
-
+    } 
 }

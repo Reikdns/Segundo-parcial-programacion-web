@@ -1,3 +1,6 @@
+using Entity;
+using System;
+
 namespace Vista.Models
 {
     public class VacunaInputModel

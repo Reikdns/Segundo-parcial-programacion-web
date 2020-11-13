@@ -14,6 +14,11 @@ namespace Logica
             _context = context;
         }
 
+        public EstudianteService()
+        {
+            
+        }
+
         public GuardarEstudianteResponse Guardar(Estudiante estudiante)
         {
             try
@@ -35,15 +40,32 @@ namespace Logica
             }
         }
 
+
         public List<Estudiante> ConsultarTodos()
         {
             List<Estudiante> estudiantes = _context.Estudiantes.ToList();
+            List<Vacuna> vacunas = _context.Vacunas.ToList();
+
+            foreach (var estudiante in estudiantes)
+            {
+                estudiante.Vacunas = new List<Vacuna>();
+                estudiante.Vacunas = vacunas.Where( v => v.FkId.Equals(estudiante.Identificacion)).ToList();
+            }
+
             return estudiantes;    
         }
 
         public Estudiante BuscarPorIdentificacion(string identificacion)
         {
             Estudiante estudiante = _context.Estudiantes.Find(identificacion);
+            
+            if(estudiante == null){return null;}
+
+            estudiante.Vacunas = new List<Vacuna>();
+            List<Vacuna> vacunas = _context.Vacunas.ToList();
+
+            estudiante.Vacunas = vacunas.Where( v => v.FkId.Equals(identificacion)).ToList();
+
             return estudiante;
         }
     }

@@ -19,7 +19,11 @@ namespace Entity
         
         public string NombreDelAcudiente { get; set; }
         
-        public List<Vacuna> Vacunas { get; set; }
-        
+        public List<Vacuna> Vacunas { get; set; } 
+
+        public Estudiante()
+        {
+            Vacunas = new List<Vacuna>();
+        }
     }
-}
+} 

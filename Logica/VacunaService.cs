@@ -14,18 +14,27 @@ namespace Logica
             _context = context;
         }
 
-        public GuardarVacunaResponse Guardar(Vacuna vacuna)
+        public GuardarVacunaResponse Guardar(Vacuna vacuna, string idEstudiante)
         {
             try
             {   
-                var vacunaBuscada = _context.Vacunas.Find(vacuna.Identificacion);
-                if (vacunaBuscada != null)
+                EstudianteService _estudianteService = new EstudianteService(_context);
+                
+                Estudiante estudiante = _estudianteService.BuscarPorIdentificacion(idEstudiante);
+
+                if (estudiante == null)
                 {
-                    return new GuardarVacunaResponse("Error, la vacuna ya se encuentra registrada.");
+                    return new GuardarVacunaResponse("No hay ningun estudiante con esa identificacion.");
                 }
 
-                _context.Vacunas.Add(vacuna);
-                _context.SaveChanges();
+                vacuna.CalcularFechaDeAplicacion(estudiante.FechaDeNacimiento);
+                
+                
+                estudiante.Vacunas = new List<Vacuna>();
+
+                estudiante.Vacunas.Add(vacuna);
+
+                _context.SaveChanges(); 
 
                 return new GuardarVacunaResponse(vacuna);
             }
@@ -48,21 +57,22 @@ namespace Logica
         }
     }
     
-        public class GuardarVacunaResponse 
+    public class GuardarVacunaResponse 
+    {
+        public GuardarVacunaResponse(Vacuna vacuna)
         {
-            public GuardarVacunaResponse(Vacuna vacuna)
-            {
-                Error = false;
-                Vacuna = vacuna;
-            }
-            public GuardarVacunaResponse(string mensaje)
-            {
-                Error = true;
-                Mensaje = mensaje;
-            }
-            public bool Error { get; set; }
-            public string Mensaje { get; set; }
-            public Vacuna Vacuna { get; set; }
+            Error = false;
+            Vacuna = vacuna;
         }
-    }
+        public GuardarVacunaResponse(string mensaje)
+        {
+            Error = true;
+            Mensaje = mensaje;
+
+        }
+
+        public bool Error { get; set; }
+        public string Mensaje { get; set; }
+        public Vacuna Vacuna { get; set; }
+    }   
 }
