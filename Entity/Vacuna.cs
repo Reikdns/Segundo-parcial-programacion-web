@@ -16,7 +16,7 @@ namespace Entity
 
         public void CalcularFechaDeAplicacion(DateTime fechaDeNacimiento)
         {
-
+            EdadDeAplicacion = FechaDeAplicacion.Year - fechaDeNacimiento.Year;
         }
 
     }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using System;
 using Datos;
 
@@ -26,6 +27,28 @@ namespace Parcial_II
             var connectionString=Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ParcialContext>(p=>p.UseSqlServer(connectionString));
             services.AddControllersWithViews();
+
+                        services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Parcial API",
+                    Description = "API para segundo parcial de programación web.",
+                    TermsOfService = new Uri("https://cla.dotnetfoundation.org/"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Reinaldo Durán N.",
+                        Email = string.Empty,
+                        Url = new Uri("https://github.com/Reikdns"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Licencia dotnet foundation",
+                        Url = new Uri("https://www.byasystems.co/license"),
+                    }
+                });
+            });
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
@@ -63,6 +86,13 @@ namespace Parcial_II
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
             app.UseSpa(spa =>
