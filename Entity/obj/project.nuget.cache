@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "LaIqE8qBBWBHu4pVsLOLZdYxfyHecxuwujBQv9KDAJaqFFFZ3vhnxAfpaiprq1bqPHtb3Ct3Q5LNVTgqyWom4g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\REINALDO\\Documents\\Proyectos Angular\\Parcial-II\\Entity\\Entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\REINALDO\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

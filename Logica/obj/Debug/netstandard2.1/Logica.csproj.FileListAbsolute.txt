@@ -1,0 +1,14 @@
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\bin\Debug\netstandard2.1\Logica.deps.json
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\bin\Debug\netstandard2.1\Logica.dll
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\bin\Debug\netstandard2.1\Logica.pdb
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\bin\Debug\netstandard2.1\Datos.dll
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\bin\Debug\netstandard2.1\Entity.dll
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\bin\Debug\netstandard2.1\Datos.pdb
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\bin\Debug\netstandard2.1\Entity.pdb
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\obj\Debug\netstandard2.1\Logica.csprojAssemblyReference.cache
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\obj\Debug\netstandard2.1\Logica.AssemblyInfoInputs.cache
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\obj\Debug\netstandard2.1\Logica.AssemblyInfo.cs
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\obj\Debug\netstandard2.1\Logica.csproj.CoreCompileInputs.cache
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\obj\Debug\netstandard2.1\Logica.csproj.CopyComplete
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\obj\Debug\netstandard2.1\Logica.dll
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\logica\obj\Debug\netstandard2.1\Logica.pdb

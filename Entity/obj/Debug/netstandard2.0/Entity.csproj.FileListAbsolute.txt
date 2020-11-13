@@ -1,0 +1,9 @@
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\bin\Debug\netstandard2.0\Entity.deps.json
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\bin\Debug\netstandard2.0\Entity.dll
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\bin\Debug\netstandard2.0\Entity.pdb
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\obj\Debug\netstandard2.0\Entity.csprojAssemblyReference.cache
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfoInputs.cache
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\obj\Debug\netstandard2.0\Entity.AssemblyInfo.cs
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\obj\Debug\netstandard2.0\Entity.csproj.CoreCompileInputs.cache
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\obj\Debug\netstandard2.0\Entity.dll
+C:\Users\REINALDO\Documents\Proyectos Angular\Parcial-II\Entity\obj\Debug\netstandard2.0\Entity.pdb
