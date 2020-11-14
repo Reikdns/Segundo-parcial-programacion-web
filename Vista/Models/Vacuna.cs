@@ -8,6 +8,10 @@ namespace Vista.Models
         public string Nombre { get; set; }
         
         public DateTime FechaDeAplicacion { get; set; }    
+
+        public string FkId { get; set; }
+        
+        
     }
 
     public class VacunaViewModel : VacunaInputModel{
@@ -22,6 +26,7 @@ namespace Vista.Models
             Nombre = vacuna.Nombre;
             FechaDeAplicacion = vacuna.FechaDeAplicacion;
             EdadDeAplicacion = vacuna.EdadDeAplicacion;
+            FkId = vacuna.FkId;
         }
 
         public int EdadDeAplicacion { get; set; }

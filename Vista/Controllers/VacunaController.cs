@@ -39,11 +39,11 @@ namespace Vista.Controllers
         //     return usuarioViewModel;
         // }
 
-        [HttpPost("{key}")]
-        public ActionResult<VacunaViewModel> Post(VacunaInputModel vacunaInput, string key)
+        [HttpPost]
+        public ActionResult<VacunaViewModel> Post(VacunaInputModel vacunaInput)
         {
-           Vacuna vacuna = MapearVacuna(vacunaInput, key);
-            var response = _vacunaService.Guardar(vacuna, key);
+           Vacuna vacuna = MapearVacuna(vacunaInput);
+            var response = _vacunaService.Guardar(vacuna);
             if (response.Error) 
             {
                 return BadRequest(response.Mensaje);
@@ -51,13 +51,13 @@ namespace Vista.Controllers
             return Ok(response.Vacuna);
         }
 
-        private Vacuna MapearVacuna(VacunaInputModel vacunaInput, string key)
+        private Vacuna MapearVacuna(VacunaInputModel vacunaInput)
         {
             var vacuna = new Vacuna
             {
                 Nombre = vacunaInput.Nombre,
                 FechaDeAplicacion = vacunaInput.FechaDeAplicacion,
-                FkId = key
+                FkId = vacunaInput.FkId
             };
             return vacuna;
         }

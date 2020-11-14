@@ -14,13 +14,13 @@ namespace Logica
             _context = context;
         }
 
-        public GuardarVacunaResponse Guardar(Vacuna vacuna, string idEstudiante)
+        public GuardarVacunaResponse Guardar(Vacuna vacuna)
         {
             try
             {   
                 EstudianteService _estudianteService = new EstudianteService(_context);
                 
-                Estudiante estudiante = _estudianteService.BuscarPorIdentificacion(idEstudiante);
+                Estudiante estudiante = _estudianteService.BuscarPorIdentificacion(vacuna.FkId);
 
                 if (estudiante == null)
                 {
