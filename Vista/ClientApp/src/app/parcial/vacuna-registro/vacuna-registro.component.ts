@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VacunaService } from 'src/app/services/vacuna.service';
+import { EstudianteRegistroComponent } from '../estudiante-registro/estudiante-registro.component';
 import { Vacuna } from '../models/vacuna';
 
 
@@ -14,7 +16,7 @@ export class VacunaRegistroComponent implements OnInit {
   formGroup: FormGroup;
   vacuna: Vacuna;
 
-  constructor(private vacunaService: VacunaService, private formBuilder: FormBuilder) { }
+  constructor(private vacunaService: VacunaService, private formBuilder: FormBuilder, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -24,7 +26,10 @@ export class VacunaRegistroComponent implements OnInit {
     this.vacunaService.post(this.vacuna).subscribe(p => {
       if (p != null) {
         this.vacuna = p;
+        return;
       }
+      const messageBox = this.modalService.open(EstudianteRegistroComponent, {centered: true, scrollable: false});
+
     });
   }
 
@@ -36,7 +41,7 @@ export class VacunaRegistroComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       nombre: [this.vacuna.nombre, Validators.required],
-      fechaDeAplicacion: [this.vacuna.nombre, Validators.required],
+      fechaDeAplicacion: [this.vacuna.fechaDeAplicacion, Validators.required],
       fkId: [this.vacuna.fkId, Validators.required]
     });
   }
