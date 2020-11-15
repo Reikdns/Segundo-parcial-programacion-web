@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { Estudiante } from '../models/Estudiante';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
 
 @Component({
   selector: 'app-estudiante-registro',
@@ -30,10 +31,12 @@ export class EstudianteRegistroComponent implements OnInit {
         this.estudiante = p;
         this.activeModal.close('Close click');
         this.activeModal.dismiss('Cross click')
+        const modal = this.modalService.open(AlertModalComponent, {centered: true, scrollable: false});
+        modal.componentInstance.message = "¡El estudiante ha sido registrado exitosamente!";
+        modal.componentInstance.tittle = "Registro de estudiante";
         return;
       }
     });
-    
   }
 
   private buildForm(){

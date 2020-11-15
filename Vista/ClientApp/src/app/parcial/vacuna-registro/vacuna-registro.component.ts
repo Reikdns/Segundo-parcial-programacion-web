@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
+import { EstudianteService } from 'src/app/services/estudiante.service';
 import { VacunaService } from 'src/app/services/vacuna.service';
 import { EstudianteRegistroComponent } from '../estudiante-registro/estudiante-registro.component';
+import { Estudiante } from '../models/Estudiante';
 import { Vacuna } from '../models/vacuna';
 
 
@@ -16,11 +18,22 @@ export class VacunaRegistroComponent implements OnInit {
 
   formGroup: FormGroup;
   vacuna: Vacuna;
+  estudiantes: Estudiante[];
+  estudiante: Estudiante;
+  identificacion: string;
 
-  constructor(private vacunaService: VacunaService, private formBuilder: FormBuilder, private modalService: NgbModal) { }
+  constructor(private vacunaService: VacunaService, private formBuilder: FormBuilder, 
+    private modalService: NgbModal,
+    private estudianteService: EstudianteService
+  ) { }
 
   ngOnInit(): void {
     this.buildForm();
+    
+    this.estudianteService.get().subscribe(result => {
+      this.estudiantes = result;
+    });
+    
   }
 
   add(){
@@ -32,6 +45,7 @@ export class VacunaRegistroComponent implements OnInit {
         modal.componentInstance.message = "¡La vacuna ha sido registrada exitosamente!";
         return;
       }
+      
       this.modalService.open(EstudianteRegistroComponent, {centered: true, scrollable: false});
     });
   }
@@ -46,6 +60,21 @@ export class VacunaRegistroComponent implements OnInit {
       nombre: [this.vacuna.nombre, Validators.required],
       fechaDeAplicacion: [this.vacuna.fechaDeAplicacion, Validators.required],
       fkId: [this.vacuna.fkId, Validators.required]
+    });
+  }
+
+  buscarEstudiante(){
+    if(!this.estudiantes){return;}
+
+    if(this.estudiante){
+      this.estudiante = null;
+    }
+
+    this.estudiantes.forEach(estudiante => {
+      if (estudiante.identificacion == this.identificacion) {
+        this.estudiante = estudiante;
+        return;
+      }
     });
   }
 
