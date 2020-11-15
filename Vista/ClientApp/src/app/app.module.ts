@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { VacunaRegistroComponent } from './parcial/vacuna-registro/vacuna-registro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EstudianteRegistroComponent } from './parcial/estudiante-registro/estudiante-registro.component';
+import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EstudianteRegistroComponent } from './parcial/estudiante-registro/estud
     NavMenuComponent,
     HomeComponent,
     VacunaRegistroComponent,
-    EstudianteRegistroComponent
+    EstudianteRegistroComponent,
+    AlertModalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
