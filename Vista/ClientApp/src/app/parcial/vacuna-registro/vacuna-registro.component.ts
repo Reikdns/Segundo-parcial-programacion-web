@@ -76,6 +76,10 @@ export class VacunaRegistroComponent implements OnInit {
         return;
       }
     });
+
+    if(this.estudiante == null){
+      this.modalService.open(EstudianteRegistroComponent, {centered: true, scrollable: false});
+    }
   }
 
   get control(){
