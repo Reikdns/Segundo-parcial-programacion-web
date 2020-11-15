@@ -15,6 +15,7 @@ import { VacunaRegistroComponent } from './parcial/vacuna-registro/vacuna-regist
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EstudianteRegistroComponent } from './parcial/estudiante-registro/estudiante-registro.component';
 import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
+import { VacunaConsultaComponent } from './parcial/vacuna-consulta/vacuna-consulta.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
     HomeComponent,
     VacunaRegistroComponent,
     EstudianteRegistroComponent,
-    AlertModalComponent
+    AlertModalComponent,
+    VacunaConsultaComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

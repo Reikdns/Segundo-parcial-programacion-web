@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbPaginationNumber } from '@ng-bootstrap/ng-bootstrap';
 import { AlertModalComponent } from 'src/app/@base/alert-modal/alert-modal.component';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { VacunaService } from 'src/app/services/vacuna.service';
@@ -58,7 +58,7 @@ export class VacunaRegistroComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group({
       nombre: [this.vacuna.nombre, Validators.required],
-      fechaDeAplicacion: [this.vacuna.fechaDeAplicacion, Validators.required],
+      fechaDeAplicacion: [this.vacuna.fechaDeAplicacion, [Validators.required]],
       fkId: [this.vacuna.fkId, Validators.required]
     });
   }
