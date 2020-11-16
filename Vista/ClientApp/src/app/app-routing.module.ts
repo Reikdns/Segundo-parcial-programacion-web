@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { VacunaRegistroComponent } from './parcial/vacuna-registro/vacuna-registro.component';
+import { VacunaConsultaComponent } from './parcial/vacuna-consulta/vacuna-consulta.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'registroVacuna',
     component: VacunaRegistroComponent
+  },
+  {
+    path: 'consultaVacuna',
+    component: VacunaConsultaComponent
   }
 ]
 

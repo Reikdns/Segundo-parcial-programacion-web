@@ -1,1 +1,29 @@
-<p>vacuna-consulta works!</p>
+<div>
+    <div class="row">
+        <div class="col-4">
+            <h2>Consulta</h2>
+            <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Nombre de la vacuna...">
+        </div>
+    </div>
+</div>
+<br>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th scope="col">Nombre</th>
+        <th style="text-align: center;" scope="col">Fecha de aplicación</th>
+        <th style="text-align: center;" scope="col">Identificación de estudiante</th>
+        <th style="text-align: center;" scope="col">Edad de aplicación</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vacuna of vacunas | filtroVacuna:searchText; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{vacuna.nombre}}</td>
+            <td style="text-align: center;">{{vacuna.fechaDeAplicacion | date: 'shortDate'}}</td>
+            <td style="text-align: center;">{{vacuna.fkId}}</td>
+            <td style="text-align: center;">{{vacuna.edadDeAplicacion}}</td>
+        </tr>
+    </tbody>
+</table>
