@@ -13,7 +13,6 @@
 					placeholder="Número de Identificación...">
 			</div>
 
-
 			<br>
 			<button type="button" class="btn-block btn-success" (click)="buscarEstudiante()">Buscar</button>
 			<br>
@@ -27,18 +26,14 @@
 						  <h6>Tipo de identificación: {{estudiante.tipoDeDocumento}}</h6>
 						  <h6>Número de identificación: {{estudiante.identificacion}}</h6>
 						  <h6>Nombre: {{estudiante.nombre}}</h6>
-						  <h6>Fecha de Nacimiento: {{estudiante.fechaDeNacimiento}}</h6>
+						  <h6>Fecha de Nacimiento: {{estudiante.fechaDeNacimiento | date : 'shortDate'}}</h6>
 						  <h6>Nombre de acudiente: {{estudiante.nombreDelAcudiente}}</h6>
 						  <h6>Institución educativa: {{estudiante.institucionEducativa}}</h6>
 						</div>
 					</div>
 				</div>
-			</div>
-				
+			</div>	
 		</div>
-
-
-
 
 		<div class="col-6">
 			<div *ngIf="estudiante">
@@ -50,8 +45,8 @@
 							<label>Identificación del estudiante</label>
 							<input type="text" placeholder="Ingrese la identificación de estudiante..."
 								formControlName="fkId" class="form-control"
-								[ngClass]="{ 'is-invalid': control.fkId.errors}" [(ngModel)]="vacuna.fkId" />
-							<div *ngIf="control.fkId.errors" class="invalid-feedback">
+								[ngClass]="{ 'is-invalid': control.fkId.errors && control.fkId.touched}" [(ngModel)]="vacuna.fkId" />
+							<div *ngIf="control.fkId.errors && control.fkId.touched" class="invalid-feedback">
 								<div *ngIf="control.fkId.errors.required">Se requiere identificación.</div>
 							</div>
 						</div>
@@ -62,8 +57,8 @@
 							<label>Nombre de la vacuna</label>
 							<input type="text" placeholder="Ingres el nombre de vacuna..." formControlName="nombre"
 								class="form-control" class="form-control"
-								[ngClass]="{ 'is-invalid': control.nombre.errors}" [(ngModel)]="vacuna.nombre" />
-							<div *ngIf="control.nombre.errors" class="invalid-feedback">
+								[ngClass]="{ 'is-invalid': control.nombre.errors && control.nombre.touched}" [(ngModel)]="vacuna.nombre" />
+							<div *ngIf="control.nombre.errors && control.nombre.touched" class="invalid-feedback">
 								<div *ngIf="control.nombre.errors.required">Se requiere el nombre de la vacuna.</div>
 							</div>
 						</div>
@@ -74,9 +69,9 @@
 							<label>Fecha de aplicación</label>
 							<input type="date" placeholder="Ingese la fecha de aplicación de la vacuna..."
 								formControlName="fechaDeAplicacion" class="form-control"
-								[ngClass]="{ 'is-invalid': control.fechaDeAplicacion.errors}"
+								[ngClass]="{ 'is-invalid': control.fechaDeAplicacion.errors && control.fechaDeAplicacion.touched}"
 								[(ngModel)]="vacuna.fechaDeAplicacion" />
-							<div *ngIf="control.fechaDeAplicacion.errors" class="invalid-feedback">
+							<div *ngIf="control.fechaDeAplicacion.errors && control.fechaDeAplicacion.touched" class="invalid-feedback">
 								<div *ngIf="control.fechaDeAplicacion.errors.required">Se requiere la fecha de
 									aplicación de
 									la
@@ -98,5 +93,4 @@
 			</div>
 		</div>
 	</div>
-
 </div>

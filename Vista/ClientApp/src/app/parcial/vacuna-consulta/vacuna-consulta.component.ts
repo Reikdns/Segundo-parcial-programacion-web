@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EstudianteService } from 'src/app/services/estudiante.service';
 import { VacunaService } from '../../services/vacuna.service';
 import { Vacuna } from '../models/vacuna';
 
@@ -11,14 +12,13 @@ export class VacunaConsultaComponent implements OnInit {
 
   searchText: string;
   vacunas: Vacuna[];
+  numeroDeVacunados :number = 0;
 
-  constructor(private vacunaService: VacunaService) { }
+  constructor(private vacunaService: VacunaService, private estudianteService: EstudianteService) { }
 
   ngOnInit(): void {
     this.get();
-    this.vacunas.forEach(vacuna => {
-      vacuna.fechaDeAplicacion.setFullYear(vacuna.fechaDeAplicacion.getFullYear());
-    });
+    this.contarVacunados();
   }
 
   get(){
@@ -27,4 +27,13 @@ export class VacunaConsultaComponent implements OnInit {
     });
   }
 
+  contarVacunados(){
+    this.estudianteService.get().subscribe(estudiantes => {
+      estudiantes.forEach(estudiante => {
+        if(estudiante.vacunas.length != 0){
+          this.numeroDeVacunados++;
+        }
+      });
+    });
+  }
 }

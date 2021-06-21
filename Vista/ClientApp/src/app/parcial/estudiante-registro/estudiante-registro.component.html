@@ -14,8 +14,9 @@
                 <label>Tipo de documento</label>
                 <input type="text" placeholder="Ingrese la identificación de estudiante..."
                     formControlName="tipoDeDocumento" class="form-control"
-                    [ngClass]="{'is-invalid': control.tipoDeDocumento.errors}" [(ngModel)]="estudiante.tipoDeDocumento" />
-                <div *ngIf="control.tipoDeDocumento.errors" class="invalid-feedback">
+                    [ngClass]="{'is-invalid': control.tipoDeDocumento.errors && control.tipoDeDocumento.touched}" 
+                    [(ngModel)]="estudiante.tipoDeDocumento" />
+                <div *ngIf="control.tipoDeDocumento.errors && control.tipoDeDocumento.touched" class="invalid-feedback">
                     <div *ngIf="control.tipoDeDocumento.errors.required">Se requiere el tipo de documento del estudiante.</div>
                 </div>
             </div>
@@ -28,8 +29,9 @@
                 <label>Identificación del estudiante</label>
                 <input type="text" placeholder="Ingrese el tipo de documento del estudiante..."
                     formControlName="identificacion" class="form-control"
-                    [ngClass]="{'is-invalid': control.identificacion.errors}" [(ngModel)]="estudiante.identificacion" />
-                <div *ngIf="control.identificacion.errors" class="invalid-feedback">
+                    [ngClass]="{'is-invalid': control.identificacion.errors && control.identificacion.touched}" 
+                    [(ngModel)]="estudiante.identificacion" />
+                <div *ngIf="control.identificacion.errors && control.identificacion.touched" class="invalid-feedback">
                     <div *ngIf="control.identificacion.errors.required">Se requiere identificación.</div>
                 </div>
             </div>
@@ -42,8 +44,9 @@
                 <label>Nombre del del estudiante</label>
                 <input type="text" placeholder="Ingrese el nombre de estudiante..."
                     formControlName="nombre" class="form-control"
-                    [ngClass]="{'is-invalid': control.nombre.errors}" [(ngModel)]="estudiante.nombre" />
-                <div *ngIf="control.nombre.errors" class="invalid-feedback">
+                    [ngClass]="{'is-invalid': control.nombre.errors && control.nombre.touched}" 
+                    [(ngModel)]="estudiante.nombre" />
+                <div *ngIf="control.nombre.errors && control.nombre.touched" class="invalid-feedback">
                     <div *ngIf="control.nombre.errors.required">Se requiere el nombre del estudiante.</div>
                 </div>
             </div>
@@ -58,8 +61,9 @@
                 <label>Fecha de nacimiento del estudiante</label>
                 <input type="date" placeholder="Ingrese fecha de nacimiento del estudiante..."
                     formControlName="fechaDeNacimiento" class="form-control"
-                    [ngClass]="{'is-invalid': control.fechaDeNacimiento.errors}" [(ngModel)]="estudiante.fechaDeNacimiento" />
-                <div *ngIf="control.fechaDeNacimiento.errors" class="invalid-feedback">
+                    [ngClass]="{'is-invalid': control.fechaDeNacimiento.errors && control.fechaDeNacimiento.touched}" 
+                    [(ngModel)]="estudiante.fechaDeNacimiento" />
+                <div *ngIf="control.fechaDeNacimiento.errors && control.fechaDeNacimiento.touched" class="invalid-feedback">
                     <div *ngIf="control.fechaDeNacimiento.errors.required">Se la fecha de nacimiento del estudiante.</div>
                 </div>
             </div>
@@ -72,8 +76,9 @@
                 <label>Nombre del acudiente del estudiante</label>
                 <input type="text" placeholder="Ingrese el nombre del acudiente del estudiante..."
                     formControlName="nombreDelAcudiente" class="form-control"
-                    [ngClass]="{'is-invalid': control.nombreDelAcudiente.errors}" [(ngModel)]="estudiante.nombreDelAcudiente" />
-                <div *ngIf="control.nombreDelAcudiente.errors" class="invalid-feedback">
+                    [ngClass]="{'is-invalid': control.nombreDelAcudiente.errors && control.nombreDelAcudiente.touched}" 
+                    [(ngModel)]="estudiante.nombreDelAcudiente" />
+                <div *ngIf="control.nombreDelAcudiente.errors && control.nombreDelAcudiente.touched" class="invalid-feedback">
                     <div *ngIf="control.nombreDelAcudiente.errors.required">Se requiere el nombre del acuediente del estudiante.</div>
                 </div>
             </div>
@@ -86,9 +91,9 @@
                 <label>Institucion educativa</label>
                 <input type="text" placeholder="Ingrese la institucion educativa..."
                     formControlName="institucionEducativa" class="form-control"
-                    [ngClass]="{ 'is-invalid': control.institucionEducativa.errors}"
+                    [ngClass]="{ 'is-invalid': control.institucionEducativa.errors && control.institucionEducativa.touched}"
                     [(ngModel)]="estudiante.institucionEducativa" />
-                <div *ngIf="control.institucionEducativa.errors" class="invalid-feedback">
+                <div *ngIf="control.institucionEducativa.errors && control.institucionEducativa.touched" class="invalid-feedback">
                     <div *ngIf="control.institucionEducativa.errors.required">Se reequiere la insitucion educativa.</div>
                 </div>
             </div>

@@ -15,6 +15,7 @@ export class EstudianteRegistroComponent implements OnInit {
 
   formGroup: FormGroup;
   estudiante: Estudiante;
+  numeroDeVacunados: number;
 
   constructor(private estudianteService: EstudianteService, private formBuilder: FormBuilder,
     private modalService: NgbModal,
